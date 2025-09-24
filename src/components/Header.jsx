@@ -1,10 +1,13 @@
 // src/components/Header.jsx
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import logoPng from '../assets/images/logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isLoggedIn } = useAuth();
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -34,8 +37,14 @@ const Header = () => {
           <li><a href="#testimoni">Testimoni</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li className="nav-actions">
-            <a className="btn btn-ghost small" href="#masuk">Masuk</a>
-            <a className="btn btn-primary small" href="#daftar">Daftar</a>
+            {!isLoggedIn ? (
+              <>
+                <Link className="btn btn-ghost small" to="/login">Masuk</Link>
+                <Link className="btn btn-primary small" to="/login">Daftar</Link>
+              </>
+            ) : (
+              <Link className="btn btn-primary small" to="/dashboard">Dashboard</Link>
+            )}
           </li>
         </ul>
       </nav>

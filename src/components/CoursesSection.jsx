@@ -1,6 +1,7 @@
 // src/components/CoursesSection.jsx
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const courses = [
   { id: 1, title: 'React Fundamental', price: 'Rp 299.000', desc: 'Dasar React, hooks, dan state management.', image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop' },
@@ -26,7 +27,7 @@ const CoursesSection = () => {
               <p>{c.desc}</p>
               <div className="course-meta">
                 <span className="price">{c.price}</span>
-                <a className="btn btn-primary small" href="#detail">Lihat Detail</a>
+                <Link className="btn btn-primary small" to="/login">Ambil Kursus</Link>
               </div>
             </div>
           </article>

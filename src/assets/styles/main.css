@@ -1,3 +1,24 @@
+/* Smooth in-page navigation and subtle click feedback */
+html { scroll-behavior: smooth; }
+
+.nav-links a,
+.btn,
+.btn:visited {
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:active,
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Optional subtle tap ripple via shadow */
+.btn:active {
+  box-shadow: 0 0 0 8px rgba(139, 92, 246, 0.15);
+}
+
+/* Ensure sections account for fixed headers on scroll if any */
+section[id] { scroll-margin-top: 80px; }
 /* src/assets/styles/main.css */
 
 /* Gaya Umum */

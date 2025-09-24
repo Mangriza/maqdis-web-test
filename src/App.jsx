@@ -1,9 +1,14 @@
 // src/App.jsx
 
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import UserLogin from './pages/UserLogin';
+import UserDashboard from './pages/UserDashboard';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './context/AuthContext';
 import './assets/styles/admin.css';
 
 function App() {
@@ -23,7 +28,24 @@ function App() {
   }
 
   document.body.classList.remove('admin');
-  return <HomePage />;
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<UserLogin />} />
+          <Route
+            path="/dashboard/*"
+            element={
+              <ProtectedRoute>
+                <UserDashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+  );
 }
 
 export default App;

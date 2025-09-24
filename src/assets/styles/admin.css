@@ -2,12 +2,30 @@
 
 :root {
   --admin-bg: #0a0e1a;
-  --admin-card: rgba(255,255,255,0.04);
-  --admin-border: rgba(255,255,255,0.08);
-  --admin-text: #e2e8f0;
+  --admin-bg-alt: #0c1224;
+  --admin-card: rgba(255,255,255,0.05);
+  --admin-border: rgba(255,255,255,0.12);
+  --admin-text: #EEEEEE; /* brighter text for readability */
+  --accent-purple: #8B5CF6;
+  --accent-pink: #EC4899;
+  --accent-orange: #F59E0B;
+  --accent-cyan: #06B6D4;
 }
 
 body.admin { background: var(--admin-bg); color: var(--admin-text); }
+
+/* Ensure bright text for user login and user dashboard even without body.admin */
+.admin-auth-wrap, .admin-auth-card, .admin-auth-form, .admin-auth-form label span, .admin-auth-title {
+  color: var(--admin-text);
+}
+.admin-layout, .admin-main, .admin-header, .admin-table, .admin-sidebar, .admin-sidebar nav, .admin-sidebar a {
+  color: var(--admin-text);
+}
+.admin-sidebar a { color: var(--admin-text); }
+.admin-sidebar a:hover { color: var(--accent-purple); }
+.admin-table th, .admin-table td { color: var(--admin-text); }
+.admin-header .breadcrumbs { color: var(--admin-text); }
+.admin-auth-form input::placeholder { color: rgba(226, 232, 240, 0.7); }
 
 .admin-auth-wrap { min-height: 100vh; display: grid; place-items: center; padding: 2rem; }
 .admin-auth-card { width: 100%; max-width: 420px; padding: 1.5rem; border-radius: 14px; background: var(--admin-card); border: 1px solid var(--admin-border); box-shadow: 0 10px 40px rgba(0,0,0,0.35); text-align: center; }
@@ -19,7 +37,7 @@ body.admin { background: var(--admin-bg); color: var(--admin-text); }
 .admin-auth-error { color: #fecaca; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); padding: 8px 10px; border-radius: 8px; font-size: 0.9rem; }
 
 .admin-layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
-.admin-sidebar { padding: 1rem; border-right: 1px solid var(--admin-border); background: rgba(255,255,255,0.02); }
+.admin-sidebar { padding: 1rem; border-right: 1px solid var(--admin-border); background: var(--admin-bg-alt); }
 .admin-brand { font-weight: 800; margin-bottom: 0.75rem; }
 .admin-sidebar nav { display: flex; flex-direction: column; }
 .admin-sidebar a { 
@@ -75,7 +93,7 @@ body.admin { background: var(--admin-bg); color: var(--admin-text); }
   gap: 1rem;
 }
 .admin-card:hover {
-  border-left-color: #8B5CF6;
+  border-left-color: var(--accent-purple);
   background: rgba(255,255,255,0.06);
   transform: translateY(-2px);
 }
@@ -167,7 +185,7 @@ body.admin { background: var(--admin-bg); color: var(--admin-text); }
 .sales-value {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #8B5CF6;
+  color: var(--accent-purple);
 }
 
 .admin-table { padding: 1rem; }
@@ -221,5 +239,68 @@ body.admin { background: var(--admin-bg); color: var(--admin-text); }
   .menu-btn span { display: block; height: 2px; width: 100%; background: var(--admin-text); border-radius: 2px; }
   .admin-cards { grid-template-columns: 1fr; }
 }
+
+/* User Dashboard Enhancements */
+.user-cards-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.75rem; padding: 1rem; }
+@media (max-width: 1200px) { .user-cards-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 768px) { .user-cards-grid { grid-template-columns: 1fr; } }
+.user-card {
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease;
+}
+.user-card.accent-purple { border-left-color: var(--accent-purple); }
+.user-card.accent-pink { border-left-color: var(--accent-pink); }
+.user-card.accent-orange { border-left-color: var(--accent-orange); }
+.user-card.accent-cyan { border-left-color: var(--accent-cyan); }
+.user-card .label { color: #b8c2cc; font-size: 0.9rem; margin-bottom: 0.25rem; }
+.user-card .value { font-weight: 800; font-size: 1.4rem; }
+
+.user-courses-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem; padding: 1rem; }
+@media (max-width: 1200px) { .user-courses-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 768px) { .user-courses-grid { grid-template-columns: 1fr; } }
+.user-course-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  display: flex; flex-direction: column;
+}
+.user-course-thumb { height: 140px; background: rgba(255,255,255,0.06); }
+.user-course-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.user-course-body { padding: 0.9rem; display: grid; gap: 0.5rem; }
+.user-course-body h4 { margin: 0; color: var(--admin-text); }
+.progress { height: 8px; width: 100%; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden; }
+.progress > .fill { height: 100%; background: var(--accent-purple); width: 0; transition: width 0.3s ease; }
+.user-course-actions { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+.user-course-card a, .user-course-card a:visited { color: var(--admin-text); text-decoration: none; }
+
+.avatar { width: 32px; height: 32px; border-radius: 50%; overflow: hidden; background: rgba(255,255,255,0.1); display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+.ranking-table .rank { font-weight: 700; color: var(--accent-orange); }
+
+/* Accordion */
+.accordion { border: 1px solid var(--admin-border); border-radius: 12px; overflow: hidden; background: var(--admin-card); }
+.accordion-item + .accordion-item { border-top: 1px solid var(--admin-border); }
+.accordion-header { padding: 0.9rem 1rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.accordion-content { padding: 0.75rem 1rem; border-top: 1px dashed var(--admin-border); display: grid; gap: 0.5rem; }
+
+/* Account Settings Form */
+.form-grid { display: grid; gap: 0.75rem; }
+.settings-form { max-width: 560px; }
+.form-grid label { display: grid; gap: 0.35rem; color: var(--admin-text); }
+.form-grid input, .form-grid select, .form-grid textarea {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--admin-border);
+  background: rgba(255,255,255,0.04);
+  color: var(--admin-text);
+  padding: 0 12px;
+}
+.form-grid textarea { height: auto; min-height: 100px; padding: 10px 12px; resize: vertical; }
+.form-actions { margin-top: 0.5rem; }
+.admin-layout .btn, .admin-layout .btn:visited { color: var(--admin-text); }
 
 
