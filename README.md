@@ -1,3 +1,34 @@
+## MaQCourse (Ringkas)
+
+Proyek React (Vite) berisi landing page, login + dashboard user (dengan proteksi), dan dashboard admin sederhana (hash-based).
+
+### Kredensial (Penting)
+- User: `user`  | Password: `123`
+- Admin: `admin` | Password: `admin123`
+
+### Install & Jalankan
+```bash
+npm install
+# (opsional) pastikan router terpasang
+npm i react-router-dom@^6.28.0 --save
+npm run dev
+```
+
+### Rute Utama
+- `/` → Landing page
+- `/login` → Login user
+- `/dashboard/*` → Dashboard user (terproteksi)
+- `/#admin` → Dashboard admin (login admin muncul dulu)
+
+### Fitur Singkat
+- Landing: section hero/fitur/kursus/testimoni/FAQ, tombol User dan Admin, smooth-scroll.
+- User: login sederhana (user/123), dashboard dengan kartu ringkasan, Kursus Saya (card + progress), Peringkat, Pengaturan Akun, halaman Modul kursus (`/dashboard/courses/:courseId/modules`).
+- Admin: login sederhana (admin/admin123), tab Overview/Users/Courses/Sales/Settings, form Settings lebih rapi, sidebar responsif.
+
+### Catatan
+- Autentikasi hanya demo (tanpa backend).
+- Bagian admin memakai navigasi berbasis hash (`#admin`).
+
 ## MaQCourse — Landing Page, User Dashboard, and Admin Dashboard
 
 A single-page React app built with Vite. It includes a public landing page, a simple user auth flow and dashboard (with protected routes), plus a lightweight admin dashboard (hash-based) for demo purposes.
