@@ -46,6 +46,18 @@ A single-page React app built with Vite. It includes a public landing page, a si
 ### Requirements
 - Node.js 18+ and npm 9+
 
+### Tugas 1 Halaman Utama
+
+![alt text](image.png)
+
+### Tugas 2 Dashboard Admin
+
+![alt text](image-1.png)
+
+### Tugas 3 Dasdhboard User
+
+
+
 ## Getting Started
 
 ### 1) Clone and install
