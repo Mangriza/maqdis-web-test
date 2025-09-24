@@ -39,8 +39,8 @@ const Header = () => {
           <li className="nav-actions">
             {!isLoggedIn ? (
               <>
-                <Link className="btn btn-ghost small" to="/login">Masuk</Link>
-                <Link className="btn btn-primary small" to="/login">Daftar</Link>
+                <Link className="btn btn-ghost small" to="/login">User</Link>
+                <a className="btn btn-primary small" href="#admin">Admin</a>
               </>
             ) : (
               <Link className="btn btn-primary small" to="/dashboard">Dashboard</Link>

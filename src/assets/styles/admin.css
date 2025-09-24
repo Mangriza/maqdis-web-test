@@ -302,5 +302,14 @@ body.admin { background: var(--admin-bg); color: var(--admin-text); }
 .form-grid textarea { height: auto; min-height: 100px; padding: 10px 12px; resize: vertical; }
 .form-actions { margin-top: 0.5rem; }
 .admin-layout .btn, .admin-layout .btn:visited { color: var(--admin-text); }
+.admin-layout .btn.btn-primary {
+  background: var(--accent-purple);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.admin-layout .btn.btn-outline {
+  background: transparent;
+  border: 1px solid var(--admin-border);
+}
+.admin-layout .btn:hover { filter: brightness(1.07); }
 
 

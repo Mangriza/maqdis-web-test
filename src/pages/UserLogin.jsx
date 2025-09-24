@@ -24,6 +24,15 @@ const UserLogin = () => {
 
   return (
     <div className="admin-auth-wrap">
+      <button
+        type="button"
+        className="btn btn-outline small"
+        onClick={() => navigate('/')}
+        style={{ position: 'fixed', top: 16, left: 16, zIndex: 50 }}
+        aria-label="Kembali"
+      >
+        ← Kembali
+      </button>
       <div className="admin-auth-card">
         <img src={logoPng} alt="MaQCourse" className="admin-logo" />
         <h2 className="admin-auth-title">Masuk User</h2>

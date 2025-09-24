@@ -3,6 +3,7 @@
 import React, { useMemo, useState } from 'react';
 import { Link, NavLink, Outlet, Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import logoPng from '../assets/images/logo.png';
 
 const MyCourses = () => {
   const [courses] = useState([
@@ -155,7 +156,7 @@ const UserDashboardLayout = () => {
   return (
     <div className="admin-layout">
       <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
-        <div className="admin-brand">MaQCourse</div>
+        <div className="admin-brand"><img src={logoPng} alt="MaQCourse" style={{ width: 20, height: 20, objectFit: 'contain', marginRight: 8, verticalAlign: 'middle' }} /> MaQCourse</div>
         <nav>
           <NavLink to="." end className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
           <NavLink to="my-courses" className={({ isActive }) => isActive ? 'active' : ''}>Kursus Saya</NavLink>

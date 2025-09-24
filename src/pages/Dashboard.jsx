@@ -1,6 +1,7 @@
 // src/pages/Dashboard.jsx
 
 import React, { useEffect, useState } from 'react';
+import logoPng from '../assets/images/logo.png';
 
 // Simple SVG Icons Component
 const Icon = ({ name, color = '#94a3b8', size = 20 }) => {
@@ -328,21 +329,21 @@ const Dashboard = ({ onLogout }) => {
 
   const renderSettings = () => (
     <section className="admin-table">
-      <h3>Settings (Dummy)</h3>
+      <h3>Settings</h3>
       <div className="table-wrap" style={{ padding: '1rem' }}>
-        <div style={{ display: 'grid', gap: '0.75rem', maxWidth: 480 }}>
-          <label style={{ display: 'grid', gap: '0.25rem' }}>
+        <form className="form-grid settings-form">
+          <label>
             <span>Nama Website</span>
             <input placeholder="MaQCourse" />
           </label>
-          <label style={{ display: 'grid', gap: '0.25rem' }}>
+          <label>
             <span>Email Support</span>
             <input placeholder="support@example.com" />
           </label>
-          <div>
-            <button className="btn">Simpan</button>
+          <div className="form-actions">
+            <button type="button" className="btn btn-primary">Simpan</button>
           </div>
-        </div>
+        </form>
       </div>
     </section>
   );
@@ -360,7 +361,7 @@ const Dashboard = ({ onLogout }) => {
   return (
     <div className="admin-layout">
       <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
-        <div className="admin-brand">MaQCourse Admin</div>
+        <div className="admin-brand"><img src={logoPng} alt="MaQCourse" style={{ width: 20, height: 20, objectFit: 'contain', marginRight: 8, verticalAlign: 'middle' }} /> MaQCourse Admin</div>
         <nav>
           <a href="#admin" className={activeTab === 'overview' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigate('overview'); }}>
             Overview
