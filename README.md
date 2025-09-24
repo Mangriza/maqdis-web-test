@@ -6,6 +6,11 @@ Proyek React (Vite) berisi landing page, login + dashboard user (dengan proteksi
 - User: `user`  | Password: `123`
 - Admin: `admin` | Password: `admin123`
 
+
+### maqdis-web-test-peach.vercel.app
+Link Deploy Porjek : maqdis-web-test-peach.vercel.app
+
+
 ### Install & Jalankan
 ```bash
 npm install
